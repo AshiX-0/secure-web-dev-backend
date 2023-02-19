@@ -18,11 +18,11 @@ app.use(express.json());
 app.use(cors())
 // Protect all /locations route with JWT Authentication
 app.use(
-  "/rest/locations",
+  "/locations",
   passport.authenticate("jwt", { session: false }),
   locationsController
 );
-app.use("/rest/users", usersController);
+app.use("/users", usersController);
 
 app.get("/", (req, res) => res.status(200).json({ message: "Hello World !" }));
 
